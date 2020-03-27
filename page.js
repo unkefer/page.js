@@ -777,7 +777,8 @@ pathToRegexp_1.tokensToRegExp = tokensToRegExp_1;
     // Ignore if tag has
     // 1. "download" attribute
     // 2. rel="external" attribute
-    if (el.hasAttribute('download') || el.getAttribute('rel') === 'external') return;
+    // 3. attributes related to site AJAX calls
+    if (el.hasAttribute('download') || el.getAttribute('rel') === 'external' || el.hasAttribute('data-bjax') || el.classList.contains('.ajaxify')) return;
 
     // ensure non-hash for the same path
     var link = el.getAttribute('href');
